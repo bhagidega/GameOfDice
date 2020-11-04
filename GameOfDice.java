@@ -143,8 +143,16 @@ public class GameOfDice {
          * first one should be number of players :n
          * second one should be target :m
          **/
-        final int n = Integer.parseInt(args[0]);
-        final int m = Integer.parseInt(args[1]);
+        final int n;
+        final int m;
+        try {
+            n = Integer.parseInt(args[0]);
+            m = Integer.parseInt(args[1]);
+        }
+        catch (Exception e) {
+            System.out.println("Please provide commandLine arguments");
+            return;
+        }
         Random rand = new Random();
         final List<String> listOfPlayers = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
